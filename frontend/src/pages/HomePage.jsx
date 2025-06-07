@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useState } from "react";
+import {toast} from "react-hot-toast"
 import {
   getOutgoingFriendReqs,
   getRecommendedUsers,
@@ -142,7 +143,7 @@ const HomePage = () => {
                         className={`btn w-full mt-2 ${
                           hasRequestBeenSent ? "btn-disabled" : "btn-primary"
                         } `}
-                        onClick={() => sendRequestMutation(user._id)}
+                        onClick={() => sendRequestMutation(user._id,toast.success("Friend request sent!"))}
                         disabled={hasRequestBeenSent || isPending}
                       >
                         {hasRequestBeenSent ? (
