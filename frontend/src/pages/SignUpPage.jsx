@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ShipWheelIcon } from "lucide-react";
 import { Link } from "react-router";
-import {toast} from "react-hot-toast"
 
 import useSignUp from "../hooks/useSignUp";
 
@@ -29,7 +28,6 @@ const SignUpPage = () => {
   const handleSignup = (e) => {
     e.preventDefault();
     signupMutation(signupData);
-    toast.success("User account created successfully!")
   };
 
   return (
