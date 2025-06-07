@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ShipWheelIcon } from "lucide-react";
 import { Link } from "react-router";
 import useLogin from "../hooks/useLogin";
+import {toast} from "react-hot-toast"
 
 const LoginPage = () => {
   const [loginData, setLoginData] = useState({
@@ -26,6 +27,7 @@ const LoginPage = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     loginMutation(loginData);
+    toast.success("User logged in successfully!")
   };
 
   return (
