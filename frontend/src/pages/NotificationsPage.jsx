@@ -1,11 +1,13 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { acceptFriendRequest, getFriendRequests } from "../lib/api";
-import { BellIcon, ClockIcon, MessageSquareIcon, UserCheckIcon } from "lucide-react";
+import { BellIcon, ClockIcon, MessageSquareIcon, ShipWheelIcon, UserCheckIcon } from "lucide-react";
 import NoNotificationsFound from "../components/NoNotificationsFound";
 import {toast} from "react-hot-toast"
+import { useNavigate } from "react-router";
 
 const NotificationsPage = () => {
   const queryClient = useQueryClient();
+  const navigate=useNavigate()
 
   const { data: friendRequests, isLoading } = useQuery({
     queryKey: ["friendRequests"],
@@ -126,6 +128,9 @@ const NotificationsPage = () => {
             {incomingRequests.length === 0 && acceptedRequests.length === 0 && (
               <NoNotificationsFound />
             )}
+             <div>
+              <button onClick={()=>navigate("/")} className="btn btn-primary w-full mt-3 size-5"><ShipWheelIcon className="size-5 mr-2" />Got it!!</button>
+            </div>
           </>
         )}
       </div>
